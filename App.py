@@ -11,7 +11,7 @@ def none():
 
 @app.route('/index.html')
 def index():
-    name = urllib.parse.unquote(re.sub(r'.*?login\_name\=(.*?)(\&.*|$)', '\g<1>', request.full_path))
+    name = urllib.parse.unquote(re.sub(r'.*?login\_name\=(.*?)(\&.*|$)', '\g<1>', request.full_path.replace('+', ' ')))
     print(name)
     variaveis = {
         "motive":"Desafio da Primeira Aula",
