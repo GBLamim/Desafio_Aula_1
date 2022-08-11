@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>{{ v.motive }}</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='stylesheets/main.css') }}">
+        <!--script src='main.js'></script-->
+    </head>
+    <body>
+        {{ v.table }}
+        <br></br>
+        <table border='1'>
+            {% for val in v.array %}
+            <tr>
+                <td>{{ val.name }}</td>
+                <td>R$ {{ val.value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+    <script>
+        document.body.innerHTML = document.body.innerHTML.replace(/R\$\s(\d*)\.(\d)/g, 'R$ $1,$2');
+    </script>
+</html>
